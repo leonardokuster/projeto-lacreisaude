@@ -247,6 +247,7 @@ export default function Home() {
               bgColor: "var(--background)",
               textColor: "var(--color-primary)",
             }}
+            buttonLink="/about"
           />
         </HeroSectionCard>
       </HeroSection>

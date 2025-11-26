@@ -1,6 +1,7 @@
 'use client';
 
 import React from "react";
+import Link from "next/link";
 import { Card, CardContent, CardMedia, Typography, CardActions, CardProps } from "@mui/material";
 import type { CardMediaProps } from "@mui/material/CardMedia";
 import styled from "styled-components";
@@ -98,6 +99,7 @@ const CustomCard: React.FC<CustomCardProps> = ({
     mediaHeight,
     mediaWidth,
     buttonLabel,
+    buttonLink,
     buttonProps = {},
 }) => {
     return (
@@ -135,10 +137,15 @@ const CustomCard: React.FC<CustomCardProps> = ({
         </CardContent>
         {buttonLabel && (
             <CardActions>
-            <CustomButton
-                label={buttonLabel}
-                {...buttonProps}
-            />
+                {buttonLink ? (
+                    <Link href={buttonLink} passHref legacyBehavior>
+                    <a style={{ textDecoration: 'none' }}>
+                        <CustomButton label={buttonLabel} {...buttonProps} />
+                    </a>
+                    </Link>
+                ) : (
+                    <CustomButton label={buttonLabel} {...buttonProps} />
+                )}
             </CardActions>
         )}
         </StyledCard>
