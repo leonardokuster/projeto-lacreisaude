@@ -1,0 +1,14 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  text-decoration: none;
+  font-family: var(--font-nunito);
+  box-sizing: border-box;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --color-primary: #018762;
+  --color-primary-focus: #016c4e;
+}
