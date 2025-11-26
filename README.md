@@ -1,36 +1,116 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Lacrei Saúde - Reprodução do Site
 
-## Getting Started
+Este projeto é uma reprodução do site [Lacrei Saúde](https://lacrei.com.br), desenvolvido majoritariamente em **TypeScript**. O objetivo foi explorar práticas modernas de desenvolvimento Front-End, aplicar testes, e experimentar estratégias de **deploy** e **rollback**.
 
-First, run the development server:
+**🔗 Visualização:**  
+O site está disponível em: [https://projeto-lacreisaude.vercel.app/](https://projeto-lacreisaude.vercel.app/)
 
+---
+
+## 🚀 Instruções para rodar o projeto localmente
+
+1. **Clone o repositório**
+    ```bash
+    git clone https://github.com/leonardokuster/projeto-lacreisaude.git
+    cd projeto-lacreisaude
+    ```
+
+2. **Instale as dependências**
+    ```bash
+    npm install
+    ```
+    ou, se preferir:
+    ```bash
+    yarn install
+    ```
+
+3. **Inicie o servidor local**
+    ```bash
+    npm run dev
+    ```
+    O projeto estará disponível em `http://localhost:3000`.
+
+---
+
+## 🏗️ Instruções para Build e Deploy
+
+1. **Build do Projeto**
+    ```bash
+    npm run build
+    ```
+    Isso irá gerar os arquivos otimizados na pasta `./.next` (se Next.js) ou `./dist` (caso outra stack).
+
+2. **Deploy**
+   - **Vercel**: Basta conectar o repositório à plataforma Vercel e definir as variáveis de ambiente necessárias. Os builds são acionados automaticamente a cada novo commit.
+   - **Outros provedores (Netlify, AWS, etc.)**: Suba os arquivos da build ou conecte o repositório diretamente.
+
+---
+
+## 🧪 Registro dos Testes Aplicados
+
+- **Testes unitários**: Cobertura dos principais componentes, utilizando **Jest** e **Testing Library**.
+
+Para rodar os testes:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm test
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🔄 Proposta de Rollback Simples
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+**Restaurar uma versão anterior no deploy** (Vercel):
 
-## Learn More
+1. Acesse o histórico de deploys no [Projeto Vercel](https://vercel.com/dashboard).
+2. Selecione o deploy desejado.
+3. Clique em "Promote to Production" para tornar esta versão ativa novamente.
 
-To learn more about Next.js, take a look at the following resources:
+Alternativa manual:
+```bash
+git checkout <commit-antigo>
+git push origin main
+```
+Esse commit será automaticamente publicado pela plataforma de deploy.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📝 Comentários sobre as escolhas visuais e técnicas
 
-## Deploy on Vercel
+- **Visual**
+    - Baseado no estilo do site original, aplicando **design responsivo** com uso extensivo de **CSS-in-JS** (styled-components).
+    - Priorização da acessibilidade com uso correto de tags semânticas.
+    - Paleta de cores e tipografia similar ao Lacrei, reproduzida de forma customizável.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Técnico**
+    - Uso de **TypeScript** para maior segurança de tipos.
+    - Estrutura de componentes reutilizáveis e modulares.
+    - Utilização de rotas dinâmicas e server side rendering, se compatível.
+    - Integração contínua via Vercel (build e preview automático).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 🔁 Rollback Funcional
+
+- **Preview Deploy (Vercel):**
+    - Cada branch ou PR gera um deploy de preview, permitindo testes antes de colocar em produção.
+    - Possível restaurar qualquer preview anterior como principal.
+
+- **Versão anterior no Vercel:**
+    - Plataforma permite selecionar qualquer histórico de deploy, facilitando rollback instantâneo.
+    - Monitoramento de performance e erros por deploy.
+
+---
+
+## 💡 Justificativas Visuais e Técnicas
+
+- **Design Responsivo**: Necessário para garantir a melhor experiência em mobile e desktop.
+- **Utilização de TypeScript**: Evita bugs, melhora o desenvolvimento colaborativo e facilita refatorações.
+- **Automação de Deploy**: Minimiza erros humanos e garante versionamento seguro.
+- **Testes aplicados**: Reduzem regressões e aceleram a evolução do projeto com mais confiança.
+- **Rollbacks rápidos**: Evitam indisponibilidade em caso de erro ou bug grave.
+
+---
+
+> **Fique à vontade para abrir issues ou PRs com sugestões e melhorias!**
+
+---
