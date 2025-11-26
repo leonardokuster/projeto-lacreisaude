@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   title: "Lacrei Saúde",
   description: "Plataforma de saúde da Lacrei, focada na comunidade LGBTQIA+.",
   icons: {
-    icon: "/favicon.ico",
+    icon: "favicon.png",
   },
 };
 
